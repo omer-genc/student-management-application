@@ -1,0 +1,16 @@
+C:\Users\omerg\GITHUB\student-management-application\bin\Debug\net5.0\student-management-application.exe
+C:\Users\omerg\GITHUB\student-management-application\bin\Debug\net5.0\student-management-application.deps.json
+C:\Users\omerg\GITHUB\student-management-application\bin\Debug\net5.0\student-management-application.runtimeconfig.json
+C:\Users\omerg\GITHUB\student-management-application\bin\Debug\net5.0\student-management-application.runtimeconfig.dev.json
+C:\Users\omerg\GITHUB\student-management-application\bin\Debug\net5.0\student-management-application.dll
+C:\Users\omerg\GITHUB\student-management-application\bin\Debug\net5.0\ref\student-management-application.dll
+C:\Users\omerg\GITHUB\student-management-application\bin\Debug\net5.0\student-management-application.pdb
+C:\Users\omerg\GITHUB\student-management-application\obj\Debug\net5.0\student-management-application.csproj.AssemblyReference.cache
+C:\Users\omerg\GITHUB\student-management-application\obj\Debug\net5.0\student-management-application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\omerg\GITHUB\student-management-application\obj\Debug\net5.0\student-management-application.AssemblyInfoInputs.cache
+C:\Users\omerg\GITHUB\student-management-application\obj\Debug\net5.0\student-management-application.AssemblyInfo.cs
+C:\Users\omerg\GITHUB\student-management-application\obj\Debug\net5.0\student-management-application.csproj.CoreCompileInputs.cache
+C:\Users\omerg\GITHUB\student-management-application\obj\Debug\net5.0\student-management-application.dll
+C:\Users\omerg\GITHUB\student-management-application\obj\Debug\net5.0\ref\student-management-application.dll
+C:\Users\omerg\GITHUB\student-management-application\obj\Debug\net5.0\student-management-application.pdb
+C:\Users\omerg\GITHUB\student-management-application\obj\Debug\net5.0\student-management-application.genruntimeconfig.cache
