@@ -44,10 +44,11 @@ namespace OgrenciYonetimUygulamasi
         public void OgrenciYonetimUygulamasi()
         {
             Menu();
-            string secim = "123";
-            while (secim != "")
+            string secim;
+            bool kapi = true;
+            while (kapi)
             {
-                
+
                 secim = SecimAl();
                 Console.WriteLine();
                 switch (secim)
@@ -61,6 +62,9 @@ namespace OgrenciYonetimUygulamasi
                     case "3":
                         OgrenciListele();
                         break;
+                    case "4":
+                        kapi = false;
+                        break;
                 }
             }
         }
@@ -68,9 +72,9 @@ namespace OgrenciYonetimUygulamasi
         public string SecimAl()
         {
             int sayac = 0;
-            string secim = "",cikti = "";
+            string secim = "", cikti = "";
             bool kapi = true;
-            while(kapi)
+            while (kapi)
             {
                 Console.WriteLine();
                 Console.Write("Seçiminiz: ");
@@ -91,6 +95,11 @@ namespace OgrenciYonetimUygulamasi
                     case "3":
                     case "L":
                         cikti = "3";
+                        kapi = false;
+                        break;
+                    case "4":
+                    case "X":
+                        cikti = "4";
                         kapi = false;
                         break;
                     default:
@@ -127,13 +136,13 @@ namespace OgrenciYonetimUygulamasi
             Console.WriteLine("1- Öğrenci Ekle -------------");
             Console.WriteLine(siradaki_ogrenci + ". Öğrencinin");
             int no;
-            
+
             do
             {
                 Console.Write("No: ");
                 no = int.Parse(Console.ReadLine());
             } while (OgrenciNoSorgula(no));
-           
+            o.No = no;
             Console.Write("Adı: ");
             o.Ad = IlkHarfBuyuk(Console.ReadLine());
             Console.Write("Soyadı: ");
@@ -147,43 +156,53 @@ namespace OgrenciYonetimUygulamasi
 
         public string IlkHarfBuyuk(string girdi)
         {
-            string cikti = girdi.ToLower();
-            string kucuk = girdi.Substring(1);
+            return girdi.ToUpper()[0] + girdi.Substring(1).ToLower();
 
-            return cikti.Replace(kucuk,kucuk.ToLower());
         }
 
         public bool OgrenciNoSorgula(int no) // girilen no ile öğrenci no su eşleştiğinde true değerini verir
         {
             bool deger = false;
             foreach (Ogrenci item in Ogrenciler)
-                if(item.No == no)
+                if (item.No == no)
                 {
                     deger = true;
                     break;
                 }
-            
+
             return deger;
         }
 
         public void OgrenciListele()
         {
-            Console.WriteLine("3- Öğrenci Listele--------------");
-            Console.WriteLine();
-            Console.WriteLine("Şube    No   Ad Soyad");
-            Console.WriteLine("------------------------");
-
-            foreach (Ogrenci t in Ogrenciler)
+            
+            string metin = "Gösterilecek öğrenci yok                            ";
+            if(Ogrenciler.Count != 0)
             {
-                Console.WriteLine(" " + t.Sube + "      " + t.No + "  " + t.Ad + " " + t.Soyad);
-            }
+                Console.WriteLine("3- Öğrenci Listele--------------");
+                Console.WriteLine();
+                Console.WriteLine("Şube    No   Ad Soyad");
+                Console.WriteLine("------------------------");
+                foreach (Ogrenci t in Ogrenciler)
+                {
+                    
+                    Console.Write(t.Sube.PadLeft(t.Sube.Length+1,' '));
+                    Console.Write("".PadLeft(6,' ')+t.No);
+                    Console.Write(t.Ad.PadLeft(t.Ad.Length+3,' '));
+                    Console.Write(t.Soyad.PadLeft(t.Soyad.Length+2,' '));
+                    Console.WriteLine("");
+
+                }
+            }//end if
+            else
+                Console.WriteLine(metin);
 
         }// end OgrenciListele
         public void OgrenciSil()
         {
             Ogrenci o = null;
             Console.WriteLine("2- Öğrenci Sil -----------");
-            if(Ogrenciler.Count == 0)
+            if (Ogrenciler.Count == 0)
                 Console.WriteLine("Listede silinecek öğrenci yok.");
             else
             {
@@ -191,7 +210,7 @@ namespace OgrenciYonetimUygulamasi
                 Console.WriteLine("Silmek istediğiniz öğrencinin");
                 Console.Write("No: ");
                 int no = int.Parse(Console.ReadLine());
-                
+
 
                 foreach (Ogrenci t in Ogrenciler)
                 {
