@@ -127,20 +127,30 @@ namespace OgrenciYonetimUygulamasi
             Console.WriteLine("1- Öğrenci Ekle -------------");
             Console.WriteLine(siradaki_ogrenci + ". Öğrencinin");
             int no;
+            
             do
             {
                 Console.Write("No: ");
                 no = int.Parse(Console.ReadLine());
             } while (OgrenciNoSorgula(no));
+           
             Console.Write("Adı: ");
-            o.Ad = Console.ReadLine();
+            o.Ad = IlkHarfBuyuk(Console.ReadLine());
             Console.Write("Soyadı: ");
-            o.Soyad = Console.ReadLine();
+            o.Soyad = IlkHarfBuyuk(Console.ReadLine());
             Console.Write("Sube: ");
             o.Sube = Console.ReadLine();
 
 
             Ogrenciler.Add(o);
+        }
+
+        public string IlkHarfBuyuk(string girdi)
+        {
+            string cikti = girdi.ToLower();
+            string kucuk = girdi.Substring(1);
+
+            return cikti.Replace(kucuk,kucuk.ToLower());
         }
 
         public bool OgrenciNoSorgula(int no) // girilen no ile öğrenci no su eşleştiğinde true değerini verir
@@ -163,19 +173,12 @@ namespace OgrenciYonetimUygulamasi
             Console.WriteLine("Şube    No   Ad Soyad");
             Console.WriteLine("------------------------");
 
-            for (int i = 0; i < Ogrenciler.Count; i++)
-            {
-                Ogrenci t = Ogrenciler[i];
-                Console.WriteLine(" " + t.Sube + "      " + t.No + "  " + t.Ad + " " + t.Soyad);
-            }
-
-
             foreach (Ogrenci t in Ogrenciler)
             {
                 Console.WriteLine(" " + t.Sube + "      " + t.No + "  " + t.Ad + " " + t.Soyad);
             }
 
-        }
+        }// end OgrenciListele
         public void OgrenciSil()
         {
             Ogrenci o = null;
